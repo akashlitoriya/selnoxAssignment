@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import CreateEmployee from './component/CreateEmployee';
 import EmployeeList from './component/EmployeeList';
