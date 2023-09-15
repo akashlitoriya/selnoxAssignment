@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-
+import {Link} from 'react-router-dom'
 const EmployeeItem = (
     {
         id,
@@ -24,6 +24,7 @@ const EmployeeItem = (
         )
         console.log(response);
     }
+    const updateLink = `https://sweede.app/DeliveryBoy/update-Employee/${id}`
   return (
     <>
       <td className='p-5 text-center'>{FirstName.concat(' ',LastName)}</td>
@@ -35,7 +36,7 @@ const EmployeeItem = (
             {menu? <div className='absolute border-2 top-0 right-0 w-[100px] h-[100px] flex justify-center items-center cursor-default'>
                         <ul className='list-none text-center cursor-pointer'>
                             <li className='my-1 text-sm'><i className="fa-solid fa-eye"></i>View</li>
-                            <li className='my-1 text-sm'><i className="fa-solid fa-pen"></i>Update</li>
+                            <Link to ={updateLink}><li className='my-1 text-sm'><i className="fa-solid fa-pen"></i>Update</li></Link>
                             <li className='my-1 text-sm'  onClick={() => removeRecord(id)}><i className="fa-solid fa-trash"></i>Delete</li>
                         </ul>
                     </div>
