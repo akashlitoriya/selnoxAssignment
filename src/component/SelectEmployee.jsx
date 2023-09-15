@@ -27,7 +27,7 @@ const SelectEmployee = () => {
             setEmployee(tempEmp);
         }else{
             let tempEmp = employee.map((item) => 
-                item.id === id? {...item, isChecked: checked} : item
+                item.id == id? {...item, isChecked: checked} : item
             )
             setEmployee(tempEmp);
         }
@@ -47,7 +47,7 @@ const SelectEmployee = () => {
     }
     function filterData(searchText, value){
         let filteredData = value.filter((emp) => {
-            return emp.FirstName.includes(searchText);
+            return emp.FirstName.toLowerCase().includes(searchText.toLowerCase());
         })
         return filteredData;
     }
@@ -70,7 +70,7 @@ const SelectEmployee = () => {
                 {!open?<div></div> :
                     <div className='w-full absolute top-[100%] left-0 right-0 bg-employeeSelectContainer rounded-lg text-employee' >
                         <div className='w-full bg-search rounded-lg h-[48px]'>
-                            <span onClick={() => searchHandler(search, filteredEmployee)}><i className="fa-solid fa-magnifying-glass px-5" ></i></span>
+                            <span onClick={() => searchHandler(search, filteredEmployee)}><i className="fa-solid fa-magnifying-glass px-5 cursor-pointer" ></i></span>
                             <input 
                                 type='text' 
                                 className='bg-search w-[300px] h-full' 
