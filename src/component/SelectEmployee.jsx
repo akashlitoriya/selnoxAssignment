@@ -19,7 +19,8 @@ const SelectEmployee = () => {
     
 
     const handleChange = (e)=>{
-        const {name, checked,id} = e.target;
+        const {name, checked, id} = e.target;
+        console.log(typeof(id));
         if(name === 'allSelect'){
             let tempEmp = employee.map((item) =>{
                 return { ...item, isChecked: checked };
@@ -27,7 +28,7 @@ const SelectEmployee = () => {
             setEmployee(tempEmp);
         }else{
             let tempEmp = employee.map((item) => 
-                item.id == id? {...item, isChecked: checked} : item
+                `${item.id}` === id? {...item, isChecked: checked} : item
             )
             setEmployee(tempEmp);
         }
@@ -89,7 +90,8 @@ const SelectEmployee = () => {
                                 className='h-[16px] w-[16px] rounded-[4px]'
                             />
                         </div>
-                        {employee.map(
+                        {employee.length === 0? <div className='font-heading font-base m-5'>No Employee Found</div>:
+                        employee.map(
                             (item) =>{
                                 return(
                                     <div className='flex justify-between items-center m-5' key={item.id}>
